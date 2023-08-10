@@ -1,0 +1,52 @@
+{% extends "main.html" %} {% load static %} 
+{% block title %}Welcome{% endblock %}
+ {% block content %}
+<body>
+    
+<div class="container">
+    <div class="logo">
+        <img src="{% static 'assets/logo.png' %}" alt="logo">
+    </div>
+    <div class="LogInfo">
+        <h1>Log into your account</h1>
+    </div>
+        <div class="FormArea">
+            <form method="POS" class = "formInputs">
+
+                {% csrf_token %}
+                <div class="FIn">
+                    <label class="InLabel" for="email">ID Number/Email</label>
+                    <div>
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="FIn">
+                    <label class="InLabel" for="Pin">Pin</label>
+                    <div>
+                        {{ form.password }}
+                    </div>
+                </div>
+
+
+                <p class="forgetP">
+                    <a href="#" class = "small text-muted">Forgot your password</a>
+                </p>
+                <div>
+
+                    <a href="http://127.0.0.1:8000/login">
+                        
+                        <button class=" btnNav" type = "submit">
+                            Login
+                        </button>
+                    </a>
+                </div>
+            </form>
+        </div>
+        
+    <div class="info">
+    </div>
+
+</div>
+</body>
+{% endblock %}

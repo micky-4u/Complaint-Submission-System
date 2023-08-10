@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container1">
+
+        <div class="LogInfo">
+            <h1>ACCOUNT <br> ACTIVATION.</h1>
+        </div>
+        <div class="info">
+            <p>For security, we want <br> to make sure it's really you</p>
+        </div>
+        <div class="FormArea1">
+            <form action="POST" class="formInputs1">
+                    <div class="labelH">
+                        <div>
+                            <p>Enter code</p>
+                        </div>
+                        <div>
+                            <a href=""> Resend Code</a>
+                        </div>
+                    </div>
+                    <div class="inputs" id='inputs'>
+                        <input class="codeinput" id='input1' type='text' maxLength="1" />
+                        <input class="codeinput" id='input2' type='text' maxLength="1" />
+                        <input class="codeinput" id='input3' type='text' maxLength="1" />
+                        <input class="codeinput" id='input4' type='text' maxLength="1" />
+                        <input class="codeinput" id='input5' type='text' maxLength="1" />
+                        <input class="codeinput" id='input6' type='text' maxLength="1" />
+                        </div>
+                  </div>
+                  <div>
+                    <p>
+                        We sent e-mail with 6-digit verification code to <span>your@gmail.com</span>
+                    </p>
+                  </div>
+                <div class="btnArea">
+                
+                    <a href="http://127.0.0.1:8000/login">
+                
+                        <button class=" btnNav1" type="submit">
+                            VERIFY
+                        </button>
+                    </a>
+                    <p>Need Help <span><a href=""> Help desk</a></span></p>
+                
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script src="{% static 'js/index.js' %}"></script>
+</body>
+
+{% endblock %}

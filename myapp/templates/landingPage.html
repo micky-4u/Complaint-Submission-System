@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Welcome{% endblock %} 
+
+{% block content %}
+    <body style = "background-image: url('{% static "assets/bg1.png" %}');">
+        <div class="container">
+
+            <div class="logo">
+                <img src="{% static 'assets/logo.png' %}" alt="logo">
+            </div>
+            <div class="buttonNav">
+
+                <a href="http://127.0.0.1:8000/login">
+                    <button class="btnNav">
+                        Let's get started 
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+    </body>
+
+{% endblock %}

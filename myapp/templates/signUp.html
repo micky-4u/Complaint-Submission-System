@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'assets/logo.png' %}" alt="logo">
+        </div>
+        <div class="LogInfo">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="FormArea">
+            <form method="POST" class="formInputs">
+
+                {% csrf_token %}
+                <div class="FIn">
+                    <label class="InLabel" for="email">ID Number/Email</label>
+                    <div>
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="FIn">
+                    <label class="InLabel" for="Pin">Hall</label>
+                    <div class="custom-select">
+                        {{ form.hall }}
+                    </div>
+                </div>
+                <div class="FIn">
+                    <label class="InLabel" for="Pin">Pin</label>
+                    <div>
+                        {{ form.password1 }}
+                    </div>
+                </div>
+
+
+                <div class="signArea">
+                    
+                    <a href="http://127.0.0.1:8000/login">
+                        
+                        <button class="btnNav" type="submit">
+                            Sign up
+                        </button>
+                    </a>
+                    <p class="createAc">
+                        Already have an account <a href="#" class="small text-muted">Sign in</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="info">
+        </div>
+
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+{% endblock %}
