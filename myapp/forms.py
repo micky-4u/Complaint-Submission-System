@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import User, Issues
 
 
 # inherit UserCreationForm to create SignupForm
@@ -77,3 +77,28 @@ class LoginForm(forms.Form):
             }
         )
     )
+
+
+class Issue(forms.Form):
+    CHOICES = (
+        ('PENT', 'African Union Hall'),
+        ('LH', 'Legon Hal'),
+        ('AK', 'Akuafo Hall-'),
+        ('VANDAL', 'Commonwealth Hall-'),
+        ('UGEL', 'UGEL Halls'),
+    )
+    category = forms.ChoiceField(
+    label="category",
+    choices=CHOICES,
+    widget=forms.Select(
+        attrs={
+            # "class": "inputText",
+            "placeholder": "Eg. Capentery",
+            "id": "category",
+        }
+    )
+    )
+    
+    class Meta:
+        model = Issues
+        fields = ['category']

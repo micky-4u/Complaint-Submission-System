@@ -109,3 +109,11 @@ inputs.map((id) => {
   const input = document.getElementById(id);
   addListener(input);
 });
+
+function slideMenu() {
+  menu = document.getElementById("sidemenu");
+  menu.style.width = "-200px";
+  menu.sytle.transition = "all 2s";
+}
+
+console.log("ahoo");

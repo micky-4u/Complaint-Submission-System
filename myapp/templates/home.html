@@ -1,0 +1,108 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+
+<body>
+    <div class="back">
+        <a href="http://127.0.0.1:8000/signup">
+            <i class="fa-solid fa-bars"></i>
+    
+        </a>
+    </div>
+    <div class="container">
+        <div class="LogInfo">
+            <h1>Report an issue</h1>
+        </div>
+        <div class="FormArea">
+            <form method="POST" class="formInputs">
+                <div class="FIn">
+                    <label class="InLabel" for="email">Category</label>
+                    <div>
+                        <input type="text" class="inputText" name="category" required>
+                    </div>
+                </div>
+
+                <div class="FIn">
+                    <label class="InLabel" for="Pin">Room number</label>
+                    <div>
+                        <input type="text" class="inputText" name = "room_number" required>
+                    </div>
+                </div>
+                <div class="FIn">
+                    <label class="InLabel" for="Pin">Description</label>
+                    <div>
+                        <textarea class="textInput1" name="description" id="description" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="signArea">
+
+                    <a href="http://127.0.0.1:8000/login">
+
+                        <button class="btnNav" type="submit">
+                            Submit
+                        </button>
+                    </a>
+                    
+                </div>
+            </form>
+        </div>
+
+        <div class="info">
+        </div>
+
+    </div>
+    <div class="sideMenu" id="sidemenu">
+        <div class="back1">
+                <div  onclick="slideMenu()">
+                    <i  class="fa-solid fa-less-than" ></i>
+
+                </div>
+        </div>
+        <div class="menuContent">
+            <div class="profile"></div>
+            <div class="contentL">
+                <div class="content">
+                    <i class="fa-solid fa-pen iconM"></i>
+
+                    <a href="">Edit Profile</a>
+                </div>
+                <div class="content">
+                    <i class="fa-solid fa-clock-rotate-left iconM" style="color: #ffffff;"></i>
+                    <a href="">Complaint Histroy</a>
+                </div>
+                <div class="content">
+                    <i class="fa-regular fa-file-lines fa-rotate-180 iconM" ></i>
+                    <a href="">Complaint Details</a>
+                </div>
+                <div class="content">
+                    <i class="fa-solid fa-lock iconM" ></i>
+                    <a href="">Change Pin</a>
+                </div>
+            </div>
+            <div class="endFooter">
+                <hr>
+                <div class="footer">
+                    <i class="fa-solid fa-gear iconM"></i>
+                    <a href="">Settings</a>
+                </div>
+                <div class="footer">
+                    <a href="">Help</a>
+                </div>
+                <div class="footer">
+                    <a href="">FAQ</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/34b015c649.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+
+{% endblock %}
