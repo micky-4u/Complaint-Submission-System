@@ -60,6 +60,8 @@ body {
         align-items: center;
         justify-content:center;
         width: 100%;
+        position: relative;
+        height: 70%;
     }
     .formInputs, .formInputs1 {
         display: flex;
@@ -177,7 +179,7 @@ body {
 }
 
 /* activate account */
-.container1 {
+.container1,  .container2, .container4{
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -262,6 +264,7 @@ body {
     top: 0;
     left: 0;
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-400px);
 }
 .back1 {
     display: flex;
@@ -277,6 +280,8 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 flex-direction: column;
+height: 80%;
+justify-content: space-evenly;
 
 }
 .content{
@@ -287,7 +292,7 @@ flex-direction: column;
 .content a {
     text-decoration: none;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
 }
 .footer{
     display: flex;
@@ -302,6 +307,116 @@ flex-direction: column;
     margin-right: 10px;
 
 }
+.history{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
+.listMenu{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.listMenu ul {
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    margin-left: 0;
+}
+
+.listMenu ul li{
+    margin-right: 35px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+.container2{
+    margin: auto;
+}
+.info{
+    display: flex;
+    justify-content: center;
+}
+.info h1 {
+    font-weight: bold;
+}
+.listItems{
+        height: 60px;
+        background-color: #D9D9D9;
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+    }
+
+.listItems ul{
+    text-decoration: none;
+
+}
+.listItems ul li {
+    display: inline-block;
+        margin-right: 35px;
+}
+.helpList {
+    display: block ;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.helpList ul{
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    position: relative;
+}
+
+.helpList ul li {
+    margin-bottom: 10px;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+.container3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container3 div {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.ChangeP{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+}
+
+.container4{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+}
+
 
 

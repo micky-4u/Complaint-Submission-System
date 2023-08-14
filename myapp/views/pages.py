@@ -11,6 +11,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.conf import settings
 from django.urls import reverse
+from django.template.defaulttags import csrf_token
 import uuid
 
 
@@ -21,10 +22,26 @@ def home(request):
             category = form.cleaned_data['category']
             room_number = form.cleaned_data['room_number']
             description = form.cleaned_data['description']
-            
+
             issue = Issues.objects.create(
                 category=category, room_number=room_number, description=description)
-            
+
             issue.save()
-        
+
     return render(request, "home.html")
+
+
+def complaintHistory(request):
+    return render(request, "complaintHistory.html")
+
+
+def help(request):
+    return render(request, "help.html")
+
+
+def changePin(request):
+    return render(request, "changePin.html")
+
+
+def success(request):
+    return render(request, "success.html")

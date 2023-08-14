@@ -1,22 +1,19 @@
 {% extends "main.html" %}
 {% load static %}
-{% block title %}Welcome{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
 <body>
-    <div class="back">
-        <a href="http://127.0.0.1:8000/signup">
+    <div class="back" onclick="displayMenu()">  
             <i class="fa-solid fa-bars"></i>
-    
-        </a>
     </div>
     <div class="container">
         <div class="LogInfo">
             <h1>Report an issue</h1>
         </div>
         <div class="FormArea">
-            <form method="POST" class="formInputs">
+            <form method="POST"  class="formInputs">
                 <div class="FIn">
                     <label class="InLabel" for="email">Category</label>
                     <div>
@@ -40,12 +37,11 @@
 
                 <div class="signArea">
 
-                    <a href="http://127.0.0.1:8000/login">
+                    
 
                         <button class="btnNav" type="submit">
                             Submit
                         </button>
-                    </a>
                     
                 </div>
             </form>
@@ -57,7 +53,7 @@
     </div>
     <div class="sideMenu" id="sidemenu">
         <div class="back1">
-                <div  onclick="slideMenu()">
+                <div id="menuIn"  onclick="slideMenu()">
                     <i  class="fa-solid fa-less-than" ></i>
 
                 </div>

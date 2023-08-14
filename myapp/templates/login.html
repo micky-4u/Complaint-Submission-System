@@ -1,5 +1,5 @@
 {% extends "main.html" %} {% load static %} 
-{% block title %}Welcome{% endblock %}
+{% block title %}Login{% endblock %}
  {% block content %}
 <body>
     
@@ -11,7 +11,7 @@
         <h1>Log into your account</h1>
     </div>
         <div class="FormArea">
-            <form method="POS" class = "formInputs">
+            <form method="POST" class = "formInputs">
 
                 {% csrf_token %}
                 <div class="FIn">
@@ -33,13 +33,10 @@
                     <a href="#" class = "small text-muted">Forgot your password</a>
                 </p>
                 <div>
-
-                    <a href="http://127.0.0.1:8000/login">
                         
                         <button class=" btnNav" type = "submit">
                             Login
                         </button>
-                    </a>
                 </div>
             </form>
         </div>

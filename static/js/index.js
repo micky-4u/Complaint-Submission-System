@@ -112,8 +112,16 @@ inputs.map((id) => {
 
 function slideMenu() {
   menu = document.getElementById("sidemenu");
-  menu.style.width = "-200px";
-  menu.sytle.transition = "all 2s";
+  menu.style.transform = "translateX(-400px)";
+  menu.style.transition = "1s ease";
+
+  console.log("Hello");
+  // menu.sytle.transition = "all 2s";
 }
 
-console.log("ahoo");
+function displayMenu() {
+  menu = document.getElementById("menuIn");
+  menuIn = document.getElementById("sidemenu");
+  menuIn.style.transform = "translateX(0px)";
+  menuIn.style.transition = "1s ease";
+}

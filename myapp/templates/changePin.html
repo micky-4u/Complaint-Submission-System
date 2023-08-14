@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Change Pin{% endblock %}
+
+{% block content %}
+    <body>
+        <body>
+            <div class="back" onclick="displayMenu()">
+                <a href="http://127.0.0.1:8000/signup">
+        
+                    <i class="fa-solid fa-less-than"></i>
+                </a>
+            </div>
+
+            <div class="container3">
+                <div class="info">
+                    <h1>Change Pin</h1>
+                </div>
+                <div>
+
+                    <form action="" class="ChangeP">
+                        <div>
+                            <input type="password" class="inputText" name="password1" placeholder="Enter you new pin" required>
+                        </div>
+                        <div>
+                            <input type="password" class="inputText" name="password2" placeholder="verify new pin" required>
+                        </div>
+                        
+                        <div>
+                            <a href="http://127.0.0.1:8000/login">
+                                
+                                <button class=" btnNav" type="submit">
+                                    Submit
+                                </button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </body>
+{% endblock %}

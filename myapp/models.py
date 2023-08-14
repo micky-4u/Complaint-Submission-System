@@ -12,8 +12,8 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
 
     # log in with email instead of username
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.email
@@ -26,6 +26,7 @@ class Issues(models.Model):
     room_number = models.PositiveIntegerField(default=0000)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+    solved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created']
