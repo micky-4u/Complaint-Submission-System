@@ -13,24 +13,43 @@
             <h1>Report an issue</h1>
         </div>
         <div class="FormArea">
+
             <form method="POST"  class="formInputs">
+                {% csrf_token %}
                 <div class="FIn">
-                    <label class="InLabel" for="email">Category</label>
-                    <div>
-                        <input type="text" class="inputText" name="category" required>
+                <label class="InLabel" for="email">Category</label>
+                <div class="custom-select">
+                    <select name="first_name" placeholder="Eg. Legon Hall" id="floatingPassword">
+                        <option value="PENT">African Union Hall</option>
+                
+                        <option value="LH">Legon Hal</option>
+                
+                        <option value="AK">Akuafo Hall-</option>
+                
+                        <option value="VANDAL">Commonwealth Hall-</option>
+                
+                        <option value="UGEL">UGEL Halls</option>
+                
+                    </select>
+                    <div class="select-items select-hide">
+                        <div>Legon Hal</div>
+                        <div>Akuafo Hall-</div>
+                        <div>Commonwealth Hall-</div>
+                        <div>UGEL Halls</div>
                     </div>
+                </div>
                 </div>
 
                 <div class="FIn">
                     <label class="InLabel" for="Pin">Room number</label>
                     <div>
-                        <input type="text" class="inputText" name = "room_number" required>
+                        <input type="text" class="inputText" name = "room_number" placeholder="eg. D1000" required>
                     </div>
                 </div>
                 <div class="FIn">
-                    <label class="InLabel" for="Pin">Description</label>
+                    <label class="InLabel" for="Pin" >Description</label>
                     <div>
-                        <textarea class="textInput1" name="description" id="description" cols="30" rows="10"></textarea>
+                        <textarea class="textInput1" name="description" id="description" cols="30" rows="10" placeholder="type here"></textarea>
                     </div>
                 </div>
 
@@ -68,15 +87,15 @@
                 </div>
                 <div class="content">
                     <i class="fa-solid fa-clock-rotate-left iconM" style="color: #ffffff;"></i>
-                    <a href="">Complaint Histroy</a>
+                    <a href="http://127.0.0.1:8000/history">Complaint Histroy</a>
                 </div>
                 <div class="content">
                     <i class="fa-regular fa-file-lines fa-rotate-180 iconM" ></i>
-                    <a href="">Complaint Details</a>
+                    <a href="http://127.0.0.1:8000/">Complaint Details</a>
                 </div>
                 <div class="content">
                     <i class="fa-solid fa-lock iconM" ></i>
-                    <a href="">Change Pin</a>
+                    <a href="http://127.0.0.1:8000/changePin">Change Pin</a>
                 </div>
             </div>
             <div class="endFooter">
@@ -86,7 +105,7 @@
                     <a href="">Settings</a>
                 </div>
                 <div class="footer">
-                    <a href="">Help</a>
+                    <a href="http://127.0.0.1:8000/help">Help</a>
                 </div>
                 <div class="footer">
                     <a href="">FAQ</a>

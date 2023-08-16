@@ -26,21 +26,29 @@ def signUp(request):
         print(form)
         if form.is_valid():
             email_to = form.cleaned_data['email']
-            otp = random.randint(100000, 999999)
 
-            user = form.save()
+            global otp
+            otp = random.randint(100000, 999999)
+            print(otp)
+
+            # user = form.save()
 
             messages.success(request, "Otp Sent")
+            subject = "ACCOUNT VERIFICATION"
+            email_from = settings.EMAIL_HOST_USER
+            to_list = [email_to]
+            message = f"Your verification code: /n {otp}"
+
+            send_mail(subject, message, email_from,
+                      to_list, fail_silently=True)
+            print(email_to)
             print("Created")
-            send_activation_email(user, request, otp)
-            return render(request, 'verifyAccountPage.html', {'OTP': otp})
+            return redirect('myapp:confirmation')
 
         else:
-            for field, errors in form.errors.items():
-                for error in errors:
-                    messages.error(request, f"{error}")
-                    print(error)
-            return redirect('signup')
+
+            messages.error(request, "error")
+            return redirect('myapp:signup')
     else:
         form = SignupForm()
 
@@ -50,6 +58,23 @@ def signUp(request):
 
 
 def verifyAccount(request):
+    if request.method == "POST":
+        input1 = request.POST.get("input1")
+        input2 = request.POST.get("input2")
+        input3 = request.POST.get("input3")
+        input4 = request.POST.get("input4")
+        input5 = request.POST.get("input5")
+        input6 = request.POST.get("input6")
+
+        code = str(input1) + str(input2) + str(input3) + \
+            str(input4) + str(input5) + str(input6)
+        print(code)
+
+        if code == str(otp):
+            return redirect('myapp:home')
+        else:
+            print("nothin")
+
     return render(request, "verifyAccountPage.html")
 
 
@@ -59,22 +84,21 @@ def login(request):
 
     # if user is authenticated, redirect to home, when user tries to access login
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('myapp:home')
 
     # Check if user is authenticated before login to home
     if request.method == 'POST':
         if form.is_valid():
-            email = form.cleaned_data.get('email')
+            username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(email=email, password=password)
-            print(user)
+            user = authenticate(request, username=username, password=password)
             if user and not user.is_email_verified:
                 messages.add_message(request, messages.ERROR,
                                      'Email is not verified, please check your email inbox')
                 return render(request, 'login.html', context, status=401)
             elif user is not None and user.is_email_verified:
                 login(request, user)
-                return redirect('home')
+                return redirect('myapp:home')
             else:
                 messages.add_message(request, messages.ERROR,
                                      'Invalid credentials, try again')
@@ -91,7 +115,7 @@ def send_activation_email(user, request, code):
     email_subject = 'Activate your account'
 
     # render a template file and pass in context
-    email_body = render_to_string('authenticate/activate.html', {
+    email_body = render_to_string('verifyAccountPage.html', {
         'user': user,
         'domain': current_site,
         'confirmation code': code

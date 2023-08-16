@@ -88,14 +88,12 @@ class SignupForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(
-        label="ID Number/Email",
-        widget=forms.EmailInput(
+    username = forms.CharField(
+        widget=forms.TextInput(
             attrs={
-                "class": "inputText",
-                "autocomplete": "email",
-                'id': "floatingInput",
-                'placeholder': 'eg. 18654783'
+                "class": " inputText",
+                "placeholder": "Enter your student number",
+                'id': "floatingInput1",
             }
         )
     )

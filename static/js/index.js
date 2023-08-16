@@ -103,6 +103,7 @@ function addListener(input) {
     }
   });
 }
+
 const inputs = ["input1", "input2", "input3", "input4", "input5", "input6"];
 
 inputs.map((id) => {

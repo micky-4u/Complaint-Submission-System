@@ -19,10 +19,10 @@ body {
     .container{
         display:  flex;
         margin: 0;
-        height: 100vh;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        width: 100vw;
     }   
 
     .logo {      
@@ -34,13 +34,18 @@ body {
         height: 41px;
         width: 206px;
         border-radius: 5px;
-        margin-bottom: 60%;
+        margin-bottom: 20px;
         text-align: center;
         color: #ffffff;
         text-align: none;
         
     }
     
+
+    .buttonNav{
+        position: absolute;
+        bottom: 5%;
+    }
     
     /* Login Page */
     .login {
@@ -94,6 +99,7 @@ body {
         padding-left: 10px;
         box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
         outline: none;
+        
     
     }
 
@@ -252,6 +258,7 @@ body {
 }
 .textInput1{
     height: 200px;
+    padding: 10px;
 }
 .sideMenu{
     height: 100vh;
@@ -337,7 +344,7 @@ justify-content: space-evenly;
 }
 .info{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .info h1 {
     font-weight: bold;
@@ -387,6 +394,7 @@ justify-content: space-evenly;
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    width: 100vw;
 }
 
 .container3 div {
@@ -413,6 +421,10 @@ justify-content: space-evenly;
 
 }
 
+.incorrectCode{
+    color : red;
+    display:none;
+}
 
 
 
