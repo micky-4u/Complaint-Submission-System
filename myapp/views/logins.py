@@ -11,7 +11,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.conf import settings
 from django.urls import reverse
-from myapp.tokens import account_activation_token
+# from myapp.tokens import account_activation_token
 import random
 
 
