@@ -140,13 +140,14 @@ MEDIA_ROOT = BASE_DIR / 'static/media'
 
 
 # Emailing settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SERVER_EMAIL = 'adanoventures@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_FROM_USER = os.environ.get('EMAIL_FROM_USER')
 EMAIL_HOST_USER = 'adanoventures@gmail.com'
 EMAIL_HOST_PASSWORD = 'andAND123'
 EMAIL_PORT = 587
-EMAIL_USE_SSL = True
+EMAIL_USE_TSL = True
 print(EMAIL_HOST_USER)
 PASSWORD_RESET_TIMEOUT = 600
 

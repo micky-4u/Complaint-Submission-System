@@ -32,17 +32,10 @@ def signUp(request):
             print(otp)
 
             # user = form.save()
-
+            print("/n/n about to send otp")
+            send_activation_email(email_to, request, otp)
             messages.success(request, "Otp Sent")
-            subject = "ACCOUNT VERIFICATION"
-            email_from = settings.EMAIL_HOST_USER
-            to_list = [email_to]
-            message = f"Your verification code: /n {otp}"
-
-            send_mail(subject, message, email_from,
-                      to_list, fail_silently=True)
-            print(email_to)
-            print("Created")
+            print("Otp sent")
             return redirect('myapp:confirmation')
 
         else:
@@ -110,13 +103,12 @@ def login(request):
 
 
 # Authentications
-def send_activation_email(user, request, code):
-    current_site = get_current_site(request)
+def send_activation_email(email, request, code):
     email_subject = 'Activate your account'
-
+    current_site = get_current_site(request)
     # render a template file and pass in context
     email_body = render_to_string('verifyAccountPage.html', {
-        'user': user,
+        'user': email,
         'domain': current_site,
         'confirmation code': code
     })
@@ -124,7 +116,7 @@ def send_activation_email(user, request, code):
     # create an email from using EmailMessage()
     email = EmailMessage(subject=email_subject, body=email_body,
                          from_email=settings.EMAIL_FROM_USER,
-                         to=[user.email]
+                         to=[email]
                          )
     # send email
     email.send()
