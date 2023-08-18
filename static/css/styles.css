@@ -38,6 +38,7 @@ body {
         text-align: center;
         color: #ffffff;
         text-align: none;
+        border: none;
         
     }
     
@@ -390,7 +391,7 @@ justify-content: space-evenly;
 
 .container3{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 100vh;
     flex-direction: column;
