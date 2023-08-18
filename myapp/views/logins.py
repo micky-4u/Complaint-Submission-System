@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from myapp.forms import LoginForm, SignupForm
 from django.contrib.auth import authenticate, login, logout
-from django.core.mail import EmailMessage, send_mail
+from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.contrib import messages
 from myapp.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -11,6 +11,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.conf import settings
 from django.urls import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 # from myapp.tokens import account_activation_token
 import random
 
@@ -33,7 +34,15 @@ def signUp(request):
 
             # user = form.save()
             print("/n/n about to send otp")
-            send_activation_email(email_to, request, otp)
+            try:
+
+                # send_mail("subject", "Hello there","adanoventures@gmail.com", [
+                #           'laryeamichael4u@gmail.com'], fail_silently=False)
+                # print("done")
+                print("Hello")
+                send_activation_email(email_to, request, otp)
+            except BadHeaderError:
+                return HttpResponse("Invalid header found.")
             messages.success(request, "Otp Sent")
             print("Otp sent")
             return redirect('myapp:confirmation')
@@ -68,7 +77,7 @@ def verifyAccount(request):
         else:
             print("nothin")
 
-    return render(request, "verifyAccountPage.html")
+    return render(request, "verifyAccountPage.html", context={"otp": "otp"})
 
 
 def login(request):
@@ -107,7 +116,7 @@ def send_activation_email(email, request, code):
     email_subject = 'Activate your account'
     current_site = get_current_site(request)
     # render a template file and pass in context
-    email_body = render_to_string('verifyAccountPage.html', {
+    email_body = render_to_string('verifyAccountPage.html', context={
         'user': email,
         'domain': current_site,
         'confirmation code': code
@@ -115,7 +124,7 @@ def send_activation_email(email, request, code):
 
     # create an email from using EmailMessage()
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email=settings.EMAIL_FROM_USER,
+                         from_email=settings.EMAIL_HOST_USER,
                          to=[email]
                          )
     # send email
