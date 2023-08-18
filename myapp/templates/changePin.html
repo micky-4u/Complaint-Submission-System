@@ -6,7 +6,7 @@
     <body>
         <body>
             <div class="back" onclick="displayMenu()">
-                <a href="http://127.0.0.1:8000/signup">
+                <a href="{% url 'myapp:home' %}">
         
                     <i class="fa-solid fa-less-than"></i>
                 </a>
@@ -27,7 +27,7 @@
                         </div>
                         
                         <div>
-                            <a href="http://127.0.0.1:8000/login">
+                            <a href="{%  %}">
                                 
                                 <button class=" btnNav" type="submit">
                                     Submit
@@ -37,5 +37,9 @@
                     </form>
                 </div>
             </div>
+
+                <script src="https://kit.fontawesome.com/34b015c649.js" crossorigin="anonymous"></script>
+                <script src="{% static 'js/index.js' %}"></script>
+
     </body>
 {% endblock %}

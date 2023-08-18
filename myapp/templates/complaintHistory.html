@@ -5,12 +5,12 @@
 {% block content %}
 <body>
     <div class="back">
-        <a href="http://127.0.0.1:8000/signup">
+        <a href="{% url 'myapp:home' %}">
     
             <i class="fa-solid fa-less-than"></i>
         </a>
     </div>
-    <div class="container2">
+    <div class="container4">
         <div class="info">
             <H1>Complaint History</H1>
         </div>
@@ -20,7 +20,7 @@
                     <li>Date</li>
                     <li>Category</li>
                     <li>Room</li>
-                    <li>Date</li>
+                    <li>Status</li>
                 </ul>
             </div>
             <div class="listItems">
@@ -28,11 +28,15 @@
                     <li>Date</li>
                     <li>Category</li>
                     <li>Room</li>
-                    <li>Date</li>
+                    <li>Solved</li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <script src="https://kit.fontawesome.com/34b015c649.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+
 </body>
 
 {% endblock %}
