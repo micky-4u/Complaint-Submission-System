@@ -39,8 +39,9 @@ def signUp(request):
                 # send_mail("subject", "Hello there","adanoventures@gmail.com", [
                 #           'laryeamichael4u@gmail.com'], fail_silently=False)
                 # print("done")
+                send_otp(email_to,"ACCOUNT CONFIRMATION",f"Your confirmation code : {otp}")
                 print("Hello")
-                send_activation_email(email_to, request, otp)
+                # send_activation_email(email_to, request, otp)
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             messages.success(request, "Otp Sent")
@@ -129,3 +130,26 @@ def send_activation_email(email, request, code):
                          )
     # send email
     email.send()
+    
+    
+def send_otp(recipient, subject, body):
+    import smtplib
+
+    FROM = "complaint System Application"
+    TO = recipient if isinstance(recipient, list) else [recipient]
+    SUBJECT = subject
+    TEXT = body
+
+    # Prepare actual message
+    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
+    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.ehlo()
+        server.starttls()
+        server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+        server.sendmail(FROM, TO, message)
+        server.close()
+        print ('successfully sent the mail')
+    except:
+        print ("failed to send mail")
