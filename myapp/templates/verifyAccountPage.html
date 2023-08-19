@@ -5,7 +5,7 @@
 {% block content %}
 <body>
     <div class="back">
-        <a href="{url 'signup'}">
+        <a href="{% url 'myapp:signup' %}">
 
 
             <i class="fa-solid fa-less-than"></i>
@@ -43,7 +43,7 @@
                   <p class="incorrectCode">Incorrect code</p>
                   <div>
                     <p>
-                        We sent e-mail with 6-digit verification code to <span>your@gmail.com</span>
+                        We sent e-mail with 6-digit verification code to <span>{{email_to}}</span>
                     </p>
                   </div>
                 <div class="btnArea">

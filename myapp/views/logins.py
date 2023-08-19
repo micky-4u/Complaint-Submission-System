@@ -46,7 +46,7 @@ def signUp(request):
                 return HttpResponse("Invalid header found.")
             messages.success(request, "Otp Sent")
             print("Otp sent")
-            return redirect('myapp:confirmation')
+            return redirect(reverse('myapp:verifyaccount'),code = otp, email =email_to)
 
         else:
 
@@ -78,7 +78,7 @@ def verifyAccount(request):
         else:
             print("nothin")
 
-    return render(request, "verifyAccountPage.html", context={"otp": "otp"})
+    return render(request, "verifyAccountPage.html")
 
 
 def login(request):
