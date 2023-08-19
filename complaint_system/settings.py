@@ -32,7 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1',
                  'complaint-submission-system-production.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS=['complaint-submission-system-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://complaint-submission-system-production.up.railway.app']
 
 AUTH_USER_MODEL = 'myapp.User'
 
