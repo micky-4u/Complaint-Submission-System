@@ -167,3 +167,16 @@ PASSWORD_RESET_TIMEOUT = 600
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+
+AUTH_PASSWORD_VALIDATORS = [
+
+    {'NAME': 'myapp.config.validators.LengthValidator', },
+    {'NAME': 'myapp.config.validators.NumberValidator',
+        'OPTIONS': {
+            'min_digits': 6,
+            'max_digits': 6,
+        }},
+    {'NAME': 'myapp.config.validators.NoUppercaseValidator', },
+    {'NAME': 'myapp.config.validators.NoSymbolValidator', },
+]

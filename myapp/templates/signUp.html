@@ -50,6 +50,12 @@
                     </div>
                 </div>
 
+                {% if messages %}{%for message in messages %}
+                <ul class="messagelist">
+                    <li class="success">{{message}}</li>
+                </ul>
+                
+                {% endfor%}{% endif %}
 
                 <div class="signArea">
                         
