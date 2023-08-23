@@ -114,6 +114,10 @@ body {
         font-weight: 200;
     }
 
+    .LogInfo h1{
+        font-size: 1.6rem;
+    }
+
     /* signup */
     .signArea{
         display: flex;
