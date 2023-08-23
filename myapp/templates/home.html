@@ -17,18 +17,18 @@
             <form method="POST"  class="formInputs">
                 {% csrf_token %}
                 <div class="FIn">
-                <label class="InLabel" for="email">Category</label>
+                <label class="InLabel" for="category">Category</label>
                 <div class="custom-select">
-                    <select name="first_name" placeholder="Eg. Legon Hall" id="floatingPassword">
+                    <select name="category" placeholder="Eg. Water" id="floatingPassword">
                         <option value="PENT">Capentry</option>
                 
-                        <option value="LH">Water</option>
+                        <option value="Water">Water</option>
                 
-                        <option value="AK">Light-</option>
+                        <option value="Light">Light-</option>
                 
-                        <option value="VANDAL">Furniture</option>
+                        <option value="Furniture">Furniture</option>
                 
-                        <option value="UGEL">Illigal Behaviour</option>
+                        <option value="Illigal">Illigal Behaviour</option>
                 
                     </select>
                     <div class="select-items select-hide">
@@ -41,13 +41,13 @@
                 </div>
 
                 <div class="FIn">
-                    <label class="InLabel" for="Pin">Room number</label>
+                    <label class="InLabel" for="room_number">Room number</label>
                     <div>
-                        <input type="text" class="inputText" name = "room_number" placeholder="eg. D1000" required>
+                        <input type="text" class="inputText" name = "room_number" placeholder="eg. 1000" required>
                     </div>
                 </div>
                 <div class="FIn">
-                    <label class="InLabel" for="Pin" >Description</label>
+                    <label class="InLabel" for="description" >Description</label>
                     <div>
                         <textarea class="textInput1" name="description" id="description" cols="30" rows="10" placeholder="type here"></textarea>
                     </div>
@@ -78,7 +78,12 @@
                 </div>
         </div>
         <div class="container1">
-            <div class="profile"></div>
+            <div class="profile">
+                <div class="profileImg">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                </div>
+                <div class="userN"><p>{{user.username}}</p></div>
+            </div>
             <div class="contentL">
                 <div class="content">
                     <i class="fa-solid fa-pen iconM"></i>
@@ -109,6 +114,9 @@
                 </div>
                 <div class="footer">
                     <a href="">FAQ</a>
+                </div>
+                <div class="footer">
+                    <a href="{% url 'myapp:logout' %}">Logout</a>
                 </div>
 
             </div>

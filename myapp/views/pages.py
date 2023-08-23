@@ -17,22 +17,20 @@ import uuid
 
 def home(request):
     if request.method == "POST":
-        form = Issues(request.POST)
-        if form.is_valid():
-            category = form.cleaned_data['category']
-            room_number = form.cleaned_data['room_number']
-            description = form.cleaned_data['description']
-
-            issue = Issues.objects.create(
-                category=category, room_number=room_number, description=description)
-
-            issue.save()
-
+        category = request.POST.get('category')
+        room_number = request.POST.get('room_number')
+        description = request.POST.get('description')
+        
+        issue = Issues(category =category, room_number=room_number, description =description)
+        issue.save()
+        
     return render(request, "home.html")
 
 
 def complaintHistory(request):
-    return render(request, "complaintHistory.html")
+    issues = Issues.objects.all().values
+    context = {"issues": issues}
+    return render(request, "complaintHistory.html",context)
 
 
 def help(request):

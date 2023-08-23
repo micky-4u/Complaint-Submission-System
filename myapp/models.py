@@ -32,4 +32,4 @@ class Issues(models.Model):
         ordering = ['created']
 
     def __str__(self):
-        return self.title
+        return self.issue_id

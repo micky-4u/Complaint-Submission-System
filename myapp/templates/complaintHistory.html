@@ -7,7 +7,7 @@
     <div class="back">
         <a href="{% url 'myapp:home' %}">
     
-            <i class="fa-solid fa-less-than"></i>
+            <i class="fa-solid fa-less-than " style="color: #000;"></i>
         </a>
     </div>
     <div class="container4">
@@ -23,14 +23,16 @@
                     <li>Status</li>
                 </ul>
             </div>
+            {% for issue in issues %}
             <div class="listItems">
                 <ul>
-                    <li>Date</li>
-                    <li>Category</li>
-                    <li>Room</li>
-                    <li>Solved</li>
+                    <li>{{issue.created.date}}</li>
+                    <li>{{issue.category}}</li>
+                    <li>{{issue.room_number}}</li>
+                    <li>S</li>
                 </ul>
             </div>
+            {% endfor %}
         </div>
     </div>
 

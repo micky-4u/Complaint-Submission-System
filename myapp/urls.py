@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-# from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views
 from .views import logins, pages
 # from django.http import Http404
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('', logins.landingPage, name="landingPage"),
     path('signup', logins.signUp, name="signup"),
     path('login', logins.login, name="login"),
+    path('logout', logins.logout_view, name="logout"),
     path('verifyaccount', logins.verifyAccount, name="verifyaccount"),
     path('home', pages.home, name="home"),
     path('history', pages.complaintHistory, name="history"),

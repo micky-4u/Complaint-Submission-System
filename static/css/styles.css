@@ -140,6 +140,7 @@ body {
     background-color: DodgerBlue;
     display: flex;
     align-items: center;
+    transition: all 1s;
 }
 
 .select-items div,
@@ -162,7 +163,8 @@ body {
     left: 0;
     right: 0;
     z-index: 99;
-        margin-top: 5px;
+    margin-top: 5px;
+    transition: all 1s;
 }
 .select-items div{
     margin-top: 10px;
@@ -257,6 +259,15 @@ body {
     align-items: center ;
     padding-left: 10%;
 }
+
+.back a {
+    text-decoration: none;
+    
+}
+
+.userN {
+    color: #fff;
+}
 .textInput1{
     height: 200px;
     padding: 10px;
@@ -272,7 +283,7 @@ body {
     top: 0;
     left: 0;
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
-    transform: translateX(-400px);
+    transform: translateX(-550px);
 }
 .back1 {
     display: flex;
@@ -355,7 +366,7 @@ justify-content: space-evenly;
         background-color: #D9D9D9;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         margin: 10px;
         box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
         border-radius: 15px;
@@ -363,6 +374,9 @@ justify-content: space-evenly;
 
 .listItems ul{
     text-decoration: none;
+    display: flex;
+    font-size: 15px;
+    
 
 }
 .listItems ul li {
@@ -427,7 +441,13 @@ justify-content: space-evenly;
     color : red;
     display:none;
 }
-
+.profile{
+    display: flex;
+    flex-direction: row;
+}
+.profile div{
+    margin-right: 10px;
+}
 
 
 }

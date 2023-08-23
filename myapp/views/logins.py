@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.contrib import messages
 from myapp.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as log, logout
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -27,6 +27,10 @@ def signUp(request):
         print(form)
         if form.is_valid():
             email_to = form.cleaned_data['email']
+            username = form.cleaned_data['username']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
+
 
             global otp
             otp = random.randint(100000, 999999)
@@ -35,22 +39,33 @@ def signUp(request):
             # user = form.save()
             print("/n/n about to send otp")
             try:
-
-                # send_mail("subject", "Hello there","adanoventures@gmail.com", [
-                #           'laryeamichael4u@gmail.com'], fail_silently=False)
-                # print("done")
-                send_otp(email_to,"ACCOUNT CONFIRMATION",f"Your confirmation code : {otp}")
-                print("Hello")
+                user = User.objects.get(email=email_to)
+                messages.error(request, "Email already exists.")
+                return redirect('myapp:login')
+            
+                # send_otp(email_to,"ACCOUNT CONFIRMATION",f"Your confirmation code : {otp}")
+                # print("Hello")
                 # send_activation_email(email_to, request, otp)
-            except BadHeaderError:
-                return HttpResponse("Invalid header found.")
-            messages.success(request, "Otp Sent")
-            print("Otp sent")
-            return redirect(reverse('myapp:verifyaccount'),code = otp, email =email_to)
+            except User.DoesNotExist:
+                if password1 == password2:
+                    user = User.objects.create(email=email_to, username=username)
+                    user.set_password(password1)
+                    user.save()
+                    log(request, user)
+                    # send_activation_email(user, request)
+                    send_otp(email_to,"ACCOUNT CONFIRMATION",f"Your confirmation code : {otp}")
+
+                    messages.add_message(request, messages.SUCCESS,
+                                         'We sent you confirmation code to verify your account')
+                    return redirect('myapp:verifyaccount')
+            
+            # return redirect(reverse('myapp:verifyaccount'))
 
         else:
 
-            messages.error(request, "error")
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{error}")
             return redirect('myapp:signup')
     else:
         form = SignupForm()
@@ -86,8 +101,8 @@ def login(request):
     context = {'form': form, 'page': 'login'}
 
     # if user is authenticated, redirect to home, when user tries to access login
-    if request.user.is_authenticated:
-        return redirect('myapp:home')
+    # if request.user.is_authenticated:
+    #     return redirect('myapp:home')
 
     # Check if user is authenticated before login to home
     if request.method == 'POST':
@@ -95,12 +110,13 @@ def login(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
+            user.is_email_verified = True
             if user and not user.is_email_verified:
                 messages.add_message(request, messages.ERROR,
                                      'Email is not verified, please check your email inbox')
                 return render(request, 'login.html', context, status=401)
             elif user is not None and user.is_email_verified:
-                login(request, user)
+                log(request, user)
                 return redirect('myapp:home')
             else:
                 messages.add_message(request, messages.ERROR,
@@ -153,3 +169,10 @@ def send_otp(recipient, subject, body):
         print ('successfully sent the mail')
     except:
         print ("failed to send mail")
+
+from django.contrib.auth import logout
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'landingPage.html')
