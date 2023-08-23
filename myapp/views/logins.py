@@ -110,12 +110,11 @@ def login(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
-            user.is_email_verified = True
-            if user and not user.is_email_verified:
+            if not user:
                 messages.add_message(request, messages.ERROR,
-                                     'Email is not verified, please check your email inbox')
+                                     'User does not exit')
                 return render(request, 'login.html', context, status=401)
-            elif user is not None and user.is_email_verified:
+            elif user :
                 log(request, user)
                 return redirect('myapp:home')
             else:
@@ -129,23 +128,23 @@ def login(request):
 
 
 # Authentications
-def send_activation_email(email, request, code):
-    email_subject = 'Activate your account'
-    current_site = get_current_site(request)
-    # render a template file and pass in context
-    email_body = render_to_string('verifyAccountPage.html', context={
-        'user': email,
-        'domain': current_site,
-        'confirmation code': code
-    })
+# def send_activation_email(email, request, code):
+#     email_subject = 'Activate your account'
+#     current_site = get_current_site(request)
+#     # render a template file and pass in context
+#     email_body = render_to_string('verifyAccountPage.html', context={
+#         'user': email,
+#         'domain': current_site,
+#         'confirmation code': code
+#     })
 
-    # create an email from using EmailMessage()
-    email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email=settings.EMAIL_HOST_USER,
-                         to=[email]
-                         )
-    # send email
-    email.send()
+#     # create an email from using EmailMessage()
+#     email = EmailMessage(subject=email_subject, body=email_body,
+#                          from_email=settings.EMAIL_HOST_USER,
+#                          to=[email]
+#                          )
+#     # send email
+#     email.send()
     
     
 def send_otp(recipient, subject, body):
@@ -176,3 +175,6 @@ from django.contrib.auth import logout
 def logout_view(request):
     logout(request)
     return render(request, 'landingPage.html')
+
+
+
