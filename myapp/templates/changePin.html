@@ -18,12 +18,16 @@
                 </div>
                 <div>
 
-                    <form action="" class="ChangeP">
+                    <form method="POST" class="ChangeP">
+                        {% csrf_token %}
                         <div>
-                            <input type="password" class="inputText" name="password1" placeholder="Enter you new pin" required>
+                            <input type="text" class="inputText" name="password1" placeholder="Enter you student ID" required>
                         </div>
                         <div>
-                            <input type="password" class="inputText" name="password2" placeholder="verify new pin" required>
+                            <input type="password" class="inputText" name="password2" placeholder="enter new pin" required>
+                        </div>
+                        <div>
+                            <input type="password" class="inputText" name="password3" placeholder="re-enter new pin" required>
                         </div>
                         
                         <div>

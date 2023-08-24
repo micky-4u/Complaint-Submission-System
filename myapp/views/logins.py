@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from myapp.forms import LoginForm, SignupForm
-from django.contrib.auth import authenticate, login, logout
 from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.contrib import messages
 from myapp.models import User
@@ -174,7 +173,7 @@ from django.contrib.auth import logout
 
 def logout_view(request):
     logout(request)
-    return render(request, 'landingPage.html')
+    return redirect('myapp:login')
 
 
 
