@@ -10,7 +10,7 @@
     <div class="LogInfo">
         <h1>Log into your account</h1>
     </div>
-    {% if messages %}{%for message in messages %}
+    {% if messages %}{%for message in messages reversed %}
     <ul class="messagelist">
         <li class="success">{{message}}</li>
     </ul>
