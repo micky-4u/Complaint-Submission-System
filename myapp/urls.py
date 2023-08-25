@@ -17,4 +17,7 @@ urlpatterns = [
     path('help', pages.help, name="help"),
     path('changePin', pages.changePin, name="changePin"),
     path('success', pages.success, name="success"),
+    
+        re_path(r'^.*/$', pages.custom_404),
+
 ]

@@ -12,9 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--&j+odla)e!hmxh)jl3kedr+(hv3ts)j-#ybu^y$!s)xyxk&@b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+DEBUG_PROPAGATE_EXCEPTIONS = False
 
 ALLOWED_HOSTS = ['127.0.0.1',
                  'complaint-submission-system-production.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS=['https://complaint-submission-system-production.up.railway.app']
+
+
 
 AUTH_USER_MODEL = 'myapp.User'
 

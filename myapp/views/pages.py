@@ -66,3 +66,7 @@ def changePin(request):
 
 def success(request):
     return render(request, "success.html")
+
+
+def custom_404(request):
+    return render(request, '404.html', status=404)

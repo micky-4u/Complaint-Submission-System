@@ -1,0 +1,460 @@
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    background-color: #ffffff;
+}
+
+
+@media only  screen and (max-width: 600px) {
+    body{
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        display: block;
+        width: 100vw;
+
+    }
+    .container{
+        display:  flex;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100vw;
+    }   
+
+    .logo {      
+        margin-top: 20%;
+    }
+    
+    .btnNav, .btnNav1 {
+        background-color: #000;
+        height: 41px;
+        width: 206px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #ffffff;
+        text-align: none;
+        border: none;
+        
+    }
+    
+
+    .buttonNav{
+        position: absolute;
+        bottom: 5%;
+    }
+    
+    /* Login Page */
+    .login {
+        background-origin: #000;
+        display: flex;
+        align-items: center;
+        
+    }
+    
+    .loginBtn a {
+        
+        text-decoration: none;
+        align-items: center ;
+    }
+    .FormArea {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        width: 100%;
+        position: relative;
+        height: 70%;
+    }
+    .formInputs, .formInputs1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .FIn {
+        margin: 10px;
+        width: 85%;
+    }
+    
+    .forgetP{
+        width: 85%;
+        text-align: right;
+    }
+    .forgetP a {
+        text-decoration: none;
+        color:#2485F6 ;
+    }
+    
+    .inputText, .textInput1{
+        width: 100%;
+        height: 47px;
+        background-color: #D9D9D9;
+        border-radius: 13px;
+        border: none;
+        padding-left: 10px;
+        box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+        outline: none;
+        
+    
+    }
+
+    .InLabel{
+        color: #000;
+        font-weight: 200;
+    }
+
+
+    .LogInfo{
+        font-weight: 200;
+    }
+
+    .LogInfo h1{
+        font-size: 1.6rem;
+    }
+
+    /* signup */
+    .signArea{
+        display: flex;
+        margin-top: 20px;
+        padding-top: 20px;
+        flex-direction: column;
+    }
+    .signArea a{
+        text-decoration: none;
+        text-align: center;
+        height: 50px;
+        color: #2485F6;
+    }
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+.custom-select select {
+    display: none;
+    /*hide original SELECT element:*/
+}
+.select-selected {
+    background-color: DodgerBlue;
+    display: flex;
+    align-items: center;
+    transition: all 1s;
+}
+
+.select-items div,
+.select-selected {
+    width: 100%;
+        height: 47px;
+        background-color: #D9D9D9;
+        border-radius: 13px;
+        border: none;
+        padding-left: 10px;
+        box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+    user-select: none;
+}
+
+.select-items {
+    position: absolute;
+    border: none;
+    background-color: #fff;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin-top: 5px;
+    transition: all 1s;
+}
+.select-items div{
+    margin-top: 10px;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #000 transparent transparent transparent;
+}
+
+/* activate account */
+.container1,  .container2, .container4{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 10%;
+}
+.container1 div {
+    margin-bottom: 10%;
+}
+
+.inputs {
+    display: flex;
+    background-color: #D9D9D9;
+    height: 60px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.FormArea1 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+}
+.codeinput{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #292825;
+    margin: 0 5px;
+    background-color: transparent;
+    outline: none;
+}
+
+.codeinput:focus{
+    border: none;
+    border-bottom: 1px solid #000;
+
+}
+
+.labelH{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: first baseline;
+    padding-top: 20px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.btnNav1{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btnArea {
+    height: 70px;
+    width: 100%;
+    text-align: center;
+
+}
+.back, .back1 {
+    height: 10%;
+    display: flex;
+    align-items: center ;
+    padding-left: 10%;
+}
+
+.back a {
+    text-decoration: none;
+    
+}
+
+.userN {
+    color: #fff;
+}
+.textInput1{
+    height: 200px;
+    padding: 10px;
+}
+.sideMenu{
+    height: 100vh;
+    width: 80%;
+    position: absolute;
+    display : flex;
+    flex-direction: column;
+    background-color: #454444;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-550px);
+}
+.back1 {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: relative;
+    padding-right: 20px;
+
+}
+
+.menuContent{
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: column;
+height: 80%;
+justify-content: space-evenly;
+
+}
+.content{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.content a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+.footer{
+    display: flex;
+}
+.footer a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+.iconM{
+    color: #ffffff;
+    margin-right: 10px;
+
+}
+.history{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.listMenu{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.listMenu ul {
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    margin-left: 0;
+}
+
+.listMenu ul li{
+    margin-right: 20px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+.container2{
+    margin: auto;
+}
+.info{
+    display: flex;
+    justify-content: flex-start;
+}
+.info h1 {
+    font-weight: bold;
+}
+.listItems{
+        height: 50px;
+        background-color: #D9D9D9;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 10px;
+        box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+    }
+
+.listItems ul{
+    text-decoration: none;
+    display: flex;
+    font-size: 15px;
+    
+
+}
+.listItems ul li {
+    display: inline-block;
+        margin-right: 20px;
+}
+.helpList {
+    display: block ;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.helpList ul{
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    position: relative;
+}
+
+.helpList ul li {
+    margin-bottom: 10px;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+.container3{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.container3 div {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.ChangeP{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+}
+
+.container4{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.incorrectCode{
+    color : red;
+    display:none;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+}
+.profile div{
+    margin-right: 10px;
+}
+
+
+}
+
+
+
