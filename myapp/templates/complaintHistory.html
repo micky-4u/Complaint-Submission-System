@@ -16,6 +16,7 @@
         </div>
         <div class="history">
             <div class="listMenu">
+                {% csrf_token %}
                 <ul>
                     <li>Date</li>
                     <li>Category</li>
@@ -29,7 +30,13 @@
                     <li>{{issue.created.date}}</li>
                     <li>{{issue.category}}</li>
                     <li>{{issue.room_number}}</li>
-                    <li>S</li>
+                    <li>
+                            {% if issue.solved == False%}
+                            <i class="fa-solid fa-circle-xmark fa-lg" style="color: #cc0e00;"></i>
+                            {% else %}
+                            <i class="fa-solid fa-circle-check fa-lg" style="color: #2ec106;"></i>
+                            {% endif%}
+                    </li>
                 </ul>
             </div>
             {% endfor %}
