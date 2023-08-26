@@ -29,7 +29,7 @@ class Issues(models.Model):
     solved = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['created']
+        ordering = ['-created']
 
     def __str__(self):
         return self.description
