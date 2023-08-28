@@ -27,6 +27,8 @@ def home(request):
         issue = Issues(category =category, room_number=room_number, description =description)
         issue.save()
         
+        send_complaint("anokyefadom@gmail.com", "COMPLAINT ALERT",f"Category: {category} \nRoom Number: {room_number} \nIssue ID: {issue.issue_id}\n\n\n\nComplaint: \n{description} ")
+        
     return render(request, "home.html")
 
 
@@ -70,3 +72,27 @@ def success(request):
 
 def custom_404(request):
     return render(request, '404.html', status=404)
+
+
+
+def send_complaint(recipient, subject, body):
+    import smtplib
+
+    FROM = "complaint System Application"
+    TO = recipient if isinstance(recipient, list) else [recipient]
+    SUBJECT = subject
+    TEXT = body
+
+    # Prepare actual message
+    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
+    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.ehlo()
+        server.starttls()
+        server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+        server.sendmail(FROM, TO, message)
+        server.close()
+        print ('successfully sent the mail')
+    except:
+        print ("failed to send mail")
